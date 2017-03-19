@@ -11,6 +11,10 @@
  *
  * @author zeeli
  */
+
+@include_once "model/Consulta.php";
+@include_once "Consulta.php";
+
 class Produto {
     private $idProduto;
     private $categoriaProduto;
@@ -18,10 +22,6 @@ class Produto {
     private $nomeProduto;
     private $descricaoProduto;
     
-    function __construct($idProduto) {
-        $this->idProduto = $idProduto;
-    }
-
     function getIdProduto() {
         return $this->idProduto;
     }
@@ -60,5 +60,28 @@ class Produto {
 
     function setDescricaoProduto($descricaoProduto) {
         $this->descricaoProduto = $descricaoProduto;
+    }
+    
+    function inserirProduto(){
+        $sql = "INSERT INTO produto("
+                . "nome_produto, "
+                . "descricao_produto, "
+                . "cod_produto, "
+                . "FK_categoria) "
+                . "VALUES (?,?,?,?)";
+        
+        $dados = array(
+            $this->nomeProduto,
+            $this->descricaoProduto,
+            $this->codProduto,
+            $this->categoriaProduto);
+        
+        $c = new Consulta($sql);
+        
+        if($c->executaConsulta($dados)){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

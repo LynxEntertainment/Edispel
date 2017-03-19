@@ -1,5 +1,6 @@
 <?php
-require_once 'Conexao.php';
+@include_once 'Conexao.php';
+@include_once '../model/Conexao.php';
 class Consulta {
     private $query;
     function __construct($query) {
