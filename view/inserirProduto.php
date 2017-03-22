@@ -2,7 +2,7 @@
 @include_once 'controller/categoriaProdutoController.php';
 @include_once '../controller/categoriaProdutoController.php'
 ?>
-<form id="inserir-produto" action="acoes/acaoInserirProduto.php" method="post">
+<form id="inserir-produto" action="acoes/acaoInserirProduto.php" method="post" enctype="multipart/form-data">
     <input type="text" id="cod_produto" name="cod_produto" placeholder="Código"/>
     <input type="text" id="nome_produto" name="nome_produto" placeholder="Nome"/>
     <textarea id="descricao_produto" name="descricao_produto" placeholder="Descrição" maxlength="500"></textarea>
@@ -17,6 +17,7 @@
         <option value="0">Nova Categoria</option>
     </select>
     <input type="text" id="nova_categoria" name="nova_categoria" placeholder="Nova Categoria"/>
+    <input type="file" id="foto[]" name="foto[]" multiple accept="image/*"/>
     <button type="submit">Inserir</button>
 </form>
 

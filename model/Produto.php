@@ -84,4 +84,42 @@ class Produto {
             return false;
         }
     }
+    
+    function selecionarProduto(){
+        $sql = "SELECT * FROM produto "
+                . "WHERE id_produto = ?";
+        
+        $dados = array($this->idProduto);
+        
+        $c = new Consulta($sql);
+        
+        $retorno = $c->executaConsulta($dados);
+        
+        if(!empty($retorno) && $retorno->rowCount()){
+            foreach($retorno as $item){
+                return $item;
+            }
+        } else {
+            return NULL;
+        }
+    }
+    
+    function ultimoInserido(){
+        $sql = "SELECT * FROM produto "
+                . "ORDER BY id_produto DESC "
+                . " LIMIT 1";
+        
+        $c = new Consulta($sql);
+        
+        $retorno = $c->executaConsulta(NULL);
+        
+        if(!empty($retorno) && $retorno->rowCount()){
+            foreach($retorno as $item){
+                $this->idProduto = $item['id_produto'];
+                true;
+            }
+        } else {
+            return false;
+        }
+    }
 }

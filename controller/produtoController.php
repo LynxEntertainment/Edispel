@@ -29,6 +29,10 @@ class produtoController {
         $this->produto->setCategoriaProduto($categoria);
     }
     
+    public function setId($id){
+        $this->produto->setIdProduto($id);
+    }
+    
     function getProduto() {
         return $this->produto;
     }
@@ -38,6 +42,25 @@ class produtoController {
     }
     
     public function inserirProduto(){
-        return $this->produto->inserirProduto();
+        if($this->produto->inserirProduto()){
+            $this->produto->ultimoInserido();
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public function selecionarProduto(){
+        if($this->produto->getIdProduto() != NULL){
+            $dados = $this->produto->selecionarProduto();
+            
+            $this->produto->setNomeProduto($dados['nome_produto']);
+            $this->produto->setDescricaoProduto($dados['descricao_produto']);
+            $this->produto->setCodProduto($dados['cod_produto']);
+            $this->produto->setCategoriaProduto($dados['FK_categoria']);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

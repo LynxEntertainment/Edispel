@@ -7,10 +7,6 @@ class Foto {
     private $produtoFoto;
     private $caminhoFoto;
     private $ordemFoto;
-    function __construct($idFoto, $produtoFoto) {
-        $this->idFoto = $idFoto;
-        $this->produtoFoto = $produtoFoto;
-    }
 
     function getIdFoto() {
         return $this->idFoto;
@@ -42,5 +38,23 @@ class Foto {
 
     function setOrdemFoto($ordemFoto) {
         $this->ordemFoto = $ordemFoto;
+    }
+    
+    public function inserirFoto(){
+        $sql = "INSERT INTO foto("
+                . "FK_produto,"
+                . "caminho_foto,"
+                . "ordem_foto) "
+                . "VALUES( ?, ?, ?)";
+        
+        $dados = array($this->produtoFoto, $this->caminhoFoto, $this->ordemFoto);
+        
+        $c = new Consulta($sql);
+        
+        if($c->executaConsulta($dados)){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

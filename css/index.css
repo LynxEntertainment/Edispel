@@ -1,0 +1,113 @@
+body{
+    font-family: Helvetica;
+    font-size: 1em;
+    color: #002800;
+    position: absolute;
+    display: block;
+    margin-bottom: 40px;
+    background: url("../img/background_transparente.png") white;
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+header{
+    margin: 0;
+    background: url("../img/resma.jpg") center;
+    background-size: cover;
+    width:100%;
+    height: 200px;
+}
+
+#userbar{
+    position: relative;
+    top: 0;
+    background: #4c913d;
+    width: 100%;
+    height: 40px;
+}
+
+#menu-bar{
+    position: relative;
+    top: 120px;
+    background: #4c913d;
+    width: 100%;
+    height: 40px;
+    border-bottom: 7px solid #047004;
+}
+
+#menu{
+    background: red;
+    margin: auto;
+    width: 1000px;
+}
+
+.menu-item{
+    padding: 11px 5px;
+    margin: 0 15px;
+    transform: skew(20deg);
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    float: right
+}
+
+.menu-item:active{
+    color: #002100;
+}
+
+.menu-item-ativo{
+    color: #002100;
+}
+
+.menu-item-container{
+    transform: skew(-20deg);
+    float: right;
+    height: 40px;
+    border-bottom: 0 solid #047004;
+    display: block;
+    transition: 200ms;
+}
+
+.menu-item-container:hover{
+    height: 0;
+    border-bottom: 40px solid #047004;
+    transition: 200ms;
+}
+
+.menu-item-container-ativo{
+    height: 0;
+    border-bottom: 40px solid #047004;
+    transition: 200ms;
+}
+
+#logo{
+    display: block;
+    z-index: 100;
+    position: absolute;
+    top: 140px;
+    left: 50px;
+}
+
+main{
+    margin: 120px auto 0;
+    width: 1000px;
+}
+
+footer{
+    position: absolute;
+    background: #4c913d;
+    width: 100%;
+    margin-top: -40px;
+    height: 40px;
+    bottom: 0;
+}
+
+h1,h2,h3,h4{
+    text-transform: uppercase;
+}
